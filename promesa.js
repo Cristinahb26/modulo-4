@@ -33,10 +33,10 @@ async function persona (){
 
         const objetoJson = JSON.stringify(objeto);
         
-       await fs.writeFile("archivo.json", objetoJson);
+       await fs.writeFile("informacion.json", objetoJson);
        console.log("Se ha guardado los datos correctamente.");
 
-       const datos = await fs.readFile("archivo.json", "utf8");
+       const datos = await fs.readFile("informacion.json", "utf8");
        const datosLeidos = JSON.parse(datos);
 
        console.log(datosLeidos);
