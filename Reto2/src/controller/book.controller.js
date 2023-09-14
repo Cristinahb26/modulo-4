@@ -1,6 +1,6 @@
 const Book = require('../models/book');
 
-let book = null
+let book = null;
 
 const getBook = (req, res)=>{
    
@@ -12,7 +12,6 @@ const getBook = (req, res)=>{
     else 
          respuesta = {error: true, codigo: 200, mensaje: "El libro no existe"}
 
-    
     res.send(respuesta);   
 
 };
@@ -52,28 +51,28 @@ const putBook = (req, res) =>{
 
 const deleteBook = (req, res) => {
 
-       let respuesta 
+      //  let respuesta 
 
-       if(book != null){
+      //  if(book != null){
 
-          book       = null;
+      //     book       = null;
 
-          respuesta  = {error: false, codigo: 200, mensaje: 'Libro Borrado', resultado: book};
-       }
-       else {
+      //     respuesta  = {error: false, codigo: 200, mensaje: 'Libro Borrado', resultado: book};
+      //  }
+      //  else {
          
-         respuesta   = {error: true, codigo: 200, mensaje: 'Libro no existe', resultado: book}
-       }
+      //    respuesta   = {error: true, codigo: 200, mensaje: 'Libro no existe', resultado: book}
+      //  }
         
-       res.send(respuesta);
+      //  res.send(respuesta);
 
-    // books.forEach(element, (book, i) => {
+    book.forEach(element, (book, i) => {
        
-    //     if (req.body.id_book == book.id_book) {
-    //          book.splice(i, 1);
-    //     }
-    // });
-    // res.send("Libro eliminado correctamente");
+        if (req.body.id_book == book.id_book) {
+             book.splice(i, 1);
+        }
+    });
+    res.send("Libro eliminado correctamente");
 }
 
 module.exports = {getBook, postBook,putBook, deleteBook};

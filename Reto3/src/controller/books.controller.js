@@ -9,3 +9,5 @@ let books = [
     new Book("El fuego", "Tapa Blanda", "Katherine Neville", 10.40, "https://quelibroleo.com/images/libros/libro_1353813418.jpg", 3, 0),
    
   ];
+
+  
