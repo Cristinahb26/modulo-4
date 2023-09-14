@@ -30,7 +30,7 @@ const putBook = (req, res) =>{
 
     let respuesta
 
-     if(books != null) { title = req.body.title, 
+     if(book != null) { title = req.body.title, 
                         type= req.body.type, 
                         author= req.body.author, 
                         price= req.body.price,
