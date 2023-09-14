@@ -50,7 +50,7 @@ const putBook = (req, res) =>{
 
 const deleteBook = (req, res) => {
 
-  books.forEach(element, (book, i) => {
+  books.forEach((book, i) => {
      
       if (req.body.id_book == book.id_book) {
            books.splice(i, 1);
