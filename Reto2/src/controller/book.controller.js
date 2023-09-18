@@ -10,7 +10,7 @@ const getBook = (req, res)=>{
       respuesta = book;
 
     else 
-         respuesta = {error: true, codigo: 200, mensaje: "El libro no existe"}
+         respuesta = {error: true, codigo: 200, mensaje: "No hay libros"}
 
     res.send(respuesta);   
 
@@ -19,8 +19,12 @@ const getBook = (req, res)=>{
 
 const postBook = (req, res) =>{
 
-    let book = new Book(req.body.title, req.body.type, req.body.author, req.body.price, req.body.photo, req.body.id_book, req.body.id_user);
-    book.push(book);
+    if (book == null) {
+        book = [];
+    }
+
+    let newbook = new Book(req.body.title, req.body.type, req.body.author, req.body.price, req.body.photo, req.body.id_book, req.body.id_user);
+    book.push(newbook);
 
     res.send("Libro añadido correctamente");
 };
@@ -51,28 +55,21 @@ const putBook = (req, res) =>{
 
 const deleteBook = (req, res) => {
 
-      //  let respuesta 
+       let respuesta 
 
-      //  if(book != null){
+       if(book != null){
 
-      //     book       = null;
+        book  = null;
 
-      //     respuesta  = {error: false, codigo: 200, mensaje: 'Libro Borrado', resultado: book};
-      //  }
-      //  else {
+          respuesta  = {error: false, codigo: 200, mensaje: 'Libro Borrado', resultado: book};
+       }
+       else {
          
-      //    respuesta   = {error: true, codigo: 200, mensaje: 'Libro no existe', resultado: book}
-      //  }
+         respuesta   = {error: true, codigo: 200, mensaje: 'Libro no existe', resultado: book}
+       }
         
-      //  res.send(respuesta);
+       res.send(respuesta);
 
-    book.forEach(element, (book, i) => {
-       
-        if (req.body.id_book == book.id_book) {
-             book.splice(i, 1);
-        }
-    });
-    res.send("Libro eliminado correctamente");
 }
 
 module.exports = {getBook, postBook,putBook, deleteBook};

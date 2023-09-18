@@ -66,17 +66,23 @@ const putBook = (req, res) =>{
 };
 
 const deleteBook = (req, res) => {
+  
+  let libroEncontrado = false;
 
   books.forEach((book, i) => {
-     
-      if (req.body.id_book == book.id_book) {
-           books.splice(i, 1);
-      }
+    if (req.body.id_book == book.id_book) {
+      books.splice(i, 1);
+      libroEncontrado = true;
+    }
   });
-  res.send("Libro eliminado correctamente");
-}
+
+  if (libroEncontrado) {
+    res.send("Libro eliminado correctamente");
+  } else {
+    res.status(404).send({error: true, codigo: 404, mensaje: 'Libro no encontrado'});
+  }
+        }
 
 module.exports = {getBooks, getBook, postBook,putBook, deleteBook};
-
 
   
