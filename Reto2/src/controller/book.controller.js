@@ -72,4 +72,4 @@ const deleteBook = (req, res) => {
 
 }
 
-module.exports = {getBook, postBook,putBook, deleteBook};
+module.exports = {getBook, postBook, putBook, deleteBook};
