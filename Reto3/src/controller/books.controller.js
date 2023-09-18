@@ -10,16 +10,33 @@ let books = [
   new Book("El Ángel de la Ciudad", "Tapa Blanca", "Eva G. Sáenz de Urturi", 13.50, "https://i.blogs.es/5e4c0e/1366_2000-3-/450_1000.jpeg", 301023, 0)
 
 ];
-
-const getBook = (req, res) => {
+const getBooks = (req, res) => {
   res.send(books);
 };
 
 
-const postBook = (req, res) =>{
+const getBook = (req, res) => {
+  const id = req.params.id;
 
-  let book = new Book(req.body.title, req.body.type, req.body.author, req.body.price, req.body.photo, req.body.id_book, req.body.id_user);
-  books.push(book);
+  if (id) {
+    const libro = books.find(libro => libro.id_book === parseInt(id));
+    if (libro) {
+      res.send([libro]);
+    } else {
+      res.status(404).send('Libro no encontrado');
+    }
+  } else {
+    res.send(books);
+  }
+};
+
+const postBook = (req, res) => {
+  if (book == null) {
+    books = [];
+  }
+
+  let newbook = new Book(req.body.title, req.body.type, req.body.author, req.body.price, req.body.photo, req.body.id_book, req.body.id_user);
+  books.push(newbook);
 
   res.send("Libro añadido correctamente");
 };
@@ -59,7 +76,6 @@ const deleteBook = (req, res) => {
   res.send("Libro eliminado correctamente");
 }
 
-module.exports = {getBook, postBook,putBook, deleteBook};
-
+module.exports = {getBooks, getBook, postBook,putBook, deleteBook};
 
   
