@@ -31,10 +31,7 @@ const getBook = (req, res) => {
 };
 
 const postBook = (req, res) => {
-  if (book == null) {
-    books = [];
-  }
-
+ 
   let newbook = new Book(req.body.title, req.body.type, req.body.author, req.body.price, req.body.photo, req.body.id_book, req.body.id_user);
   books.push(newbook);
 
@@ -44,23 +41,26 @@ const postBook = (req, res) => {
 
 const putBook = (req, res) =>{
 
-  let respuesta
+  let id_book = req.body.id_book; // Se asume que el ID del libro se pasa en el cuerpo de la solicitud
+  let respuesta = books.findIndex(book => book.id_book === id_book);
 
-   if(books != null) { title = req.body.title, 
-                      type= req.body.type, 
-                      author= req.body.author, 
-                      price= req.body.price,
-                      photo= req.body.photo, 
-                      id_book= req.body.id_book, 
-                      id_user= req.body.id_user 
-                  
-                      respuesta = {error: false, codigo: 200, mensaje: 'Libro Actualizado correctamente', resultado: book};
+  if (respuesta !== -1) {
+
+    let updatedBook = {
+      title: req.body.title || books[respuesta].title,
+      type: req.body.type || books[respuesta].type,
+      author: req.body.author || books[respuesta].author,
+      price: req.body.price || books[respuesta].price,
+      photo: req.body.photo || books[respuesta].photo,
+      id_book: id_book,
+      id_user: req.body.id_user || books[respuesta].id_user
+    };
+
+    books[respuesta] = updatedBook;
+           
+       respuesta = "libro actualizado correctamente";
   }
-  else {
-
-      respuesta = {error: true, codigo: 200, mensaje: 'Libro no existe', resultado: book}
-  }
-
+  
     res.send(respuesta);
 
 };
