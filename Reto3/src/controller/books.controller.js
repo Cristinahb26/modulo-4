@@ -31,10 +31,7 @@ const getBook = (req, res) => {
 };
 
 const postBook = (req, res) => {
-  if (book === null) {
-    books = [];
-  }
-
+ 
   let newbook = new Book(req.body.title, req.body.type, req.body.author, req.body.price, req.body.photo, req.body.id_book, req.body.id_user);
   books.push(newbook);
 
