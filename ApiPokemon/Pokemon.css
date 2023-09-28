@@ -1,0 +1,116 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+
+    background-image: url(./Imagenes/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+}
+.container{
+
+    /* background-color: aliceblue; */
+    width: 90%;
+    height: 90vh;
+    padding-left: 100px;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.formulario{
+
+    /* background-color: aqua; */
+    width: 60%;
+    height: 70vh;
+    margin-left: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 20px;
+
+}
+.logo{
+
+    width: 100%;
+    height: 40vh;
+    
+}
+.logoTip{
+
+    height: 280px;
+    width: 720px;
+
+}
+.informacion{
+
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+input{
+
+    height: 40px;
+    width: 400px;
+    font-size: 15px;
+    padding-left: 20px;
+    border-radius: 7px;
+    border: none;
+}
+
+button{
+
+    height: 40px;
+    width: 400px;
+    border-radius: 7px;
+    border-color: #3880cd;
+    color: #3880cd;
+    font-weight: bolder;
+    background-color: #f7d259;
+    font-size: 24px;
+
+}
+.pokemon-container{
+
+    background-color: rgba(251, 250, 247, 0.2);
+    border: 2px solid rgb(16, 15, 15, 0.4);
+    border-radius: 7px;
+    padding: 10px 70px 10px 70px;
+    margin-left: 100px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    gap: 10px;
+
+}
+p{
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 18px;
+    padding-top: 10px;
+}
+img{
+    width: 12vw;
+}
