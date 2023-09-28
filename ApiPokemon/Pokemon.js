@@ -21,9 +21,11 @@ async function searchPokemon(){
 
         pokemonContainer.innerHTML =
         `
+
         <img src="${data.sprites.front_default}">
         <h2>${data.name.toUpperCase()}</h2>
-        <p>Habilidades: ${Habilidades}</p>
+        <h4>Habilidades: ${Habilidades}</h4>
+        
         ` ;
     }
     catch (error){

@@ -103,13 +103,11 @@ button{
     gap: 10px;
 
 }
-p{
-
-    display: flex;
-    flex-direction: column;
+h4{
 
     font-size: 18px;
     padding-top: 10px;
+
 }
 img{
     width: 12vw;
